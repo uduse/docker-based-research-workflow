@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: *
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: $GITHUB_ACTOR
+        registry: docker.pkg.github.com
+        password: ${{ secrets.GITHUB_TOKEN }}
+        repository: $GITHUB_REPOSITORY/images
+        tag_with_ref: true
