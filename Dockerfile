@@ -9,6 +9,6 @@ WORKDIR /cpp
 RUN make
 
 WORKDIR /py
-RUN pip3 install pipenv && pipenv install --system --deploy --ignore-pipfile
+RUN pip3 install pipenv && pipenv install --system --deploy --ignore-pipfile && pip3 install torch
 
 WORKDIR /experiments
