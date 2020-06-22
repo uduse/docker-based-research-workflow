@@ -19,5 +19,6 @@ jobs:
           username: ${{ github.actor }}
           registry: docker.pkg.github.com
           password: ${{ github.token }}
-          repository: ${{ github.repository }}
+          repository: ${{ github.repository }}/docker
+          cache_froms: ${{ github.repository }}/docker:latest
           tag_with_ref: true
